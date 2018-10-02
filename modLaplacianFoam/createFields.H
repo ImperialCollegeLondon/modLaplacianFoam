@@ -17,16 +17,14 @@ volScalarField modT
 (
     IOobject
     (
-        modT,
+        "modT",
         runTime.timeName(),
         mesh,
         IOobject::NO_READ,
         IOobject::AUTO_WRITE
     ),
-    T
+    2.0*T
 );
-
-
 
 
 Info<< "Reading transportProperties\n" << endl;
