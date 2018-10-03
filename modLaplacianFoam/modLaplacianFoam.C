@@ -67,6 +67,8 @@ int main(int argc, char *argv[])
             fvOptions.constrain(TEqn);
             TEqn.solve();
             fvOptions.correct(T);
+
+            modT = T;
         }
 
         #include "write.H"
