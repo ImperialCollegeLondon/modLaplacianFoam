@@ -9,39 +9,21 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      T;
+    class       dictionary;
+    object      changeDictionaryDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
-
-internalField   uniform 273;
-
-boundaryField
+boundary
 {
-    left
+    back
     {
-        type            zeroGradient;
+        type            empty;
     }
-
-    right
+    front
     {
-        type            zeroGradient;
+        type            empty;
     }
-
-    top
-    {
-        type            fixedValue;
-        value           uniform 323;
-    }
-
-    bottom
-    {
-        type            fixedValue;
-        value           uniform 273;
-    }
-
 }
 
 // ************************************************************************* //
