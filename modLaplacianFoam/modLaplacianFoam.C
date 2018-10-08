@@ -57,18 +57,19 @@ int main(int argc, char *argv[])
 
         while (simple.correctNonOrthogonal())
         {
+            
+            // solve steady-state version of @Levi2016 Eq. 2
             fvScalarMatrix VEqn
             (
-                fvm::ddt(V) - fvm::laplacian(DT, V)
-             ==
-                fvOptions(V)
+                fvm::laplacian(sigma, V)
             );
-
-            fvOptions.constrain(VEqn);
             VEqn.solve();
-            fvOptions.correct(V);
 
-            modV = V;
+            fvScalarMatrix TEqn
+            (
+                rho*Cp*fvm::ddt(T) - fvm::laplacian(DT, T)  // TODO add Joule heating source term
+            );
+            TEqn.solve();
         }
 
         #include "write.H"

@@ -1,3 +1,19 @@
+Info<< "Reading field T\n" << endl;
+
+volScalarField T
+(
+    IOobject
+    (
+        "T",
+        runTime.timeName(),
+        mesh,
+        IOobject::MUST_READ,
+        IOobject::AUTO_WRITE
+    ),
+    mesh
+);
+
+
 Info<< "Reading field V\n" << endl;
 
 volScalarField V
@@ -13,19 +29,11 @@ volScalarField V
     mesh
 );
 
-volScalarField modV
-(
-    IOobject
-    (
-        "modV",
-        runTime.timeName(),
-        mesh,
-        IOobject::NO_READ,
-        IOobject::AUTO_WRITE
-    ),
-    2.0*V
-);
+dimensionedScalar sigma("sigma", dimensionSet(-1, -3, 3, 0, 0, 2, 0), 1.5); 
+dimensionedScalar epsilon("epsilon", dimensionSet(-1, -3, 4, 0, 0, 2, 0), 2.2); 
 
+dimensionedScalar rho("rho", dimensionSet(1, 3, 0, 0, 0, 0, 0), 3.0); 
+dimensionedScalar Cp("Cp", dimensionSet(1, 2, -2, -1, 0, 0, 0), 3.0); 
 
 Info<< "Reading transportProperties\n" << endl;
 
