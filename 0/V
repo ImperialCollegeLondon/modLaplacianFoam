@@ -10,13 +10,13 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    object      T;
+    object      V;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
+dimensions      [1 2 -3 0 0 -1 0];
 
-internalField   uniform 273;
+internalField   uniform 10;
 
 boundaryField
 {
@@ -33,13 +33,13 @@ boundaryField
     top
     {
         type            fixedValue;
-        value           uniform 323;
+        value           uniform 40;
     }
 
     bottom
     {
         type            fixedValue;
-        value           uniform 273;
+        value           uniform 10;
     }
 
 }

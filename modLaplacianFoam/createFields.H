@@ -1,10 +1,10 @@
-Info<< "Reading field T\n" << endl;
+Info<< "Reading field V\n" << endl;
 
-volScalarField T
+volScalarField V
 (
     IOobject
     (
-        "T",
+        "V",
         runTime.timeName(),
         mesh,
         IOobject::MUST_READ,
@@ -13,17 +13,17 @@ volScalarField T
     mesh
 );
 
-volScalarField modT
+volScalarField modV
 (
     IOobject
     (
-        "modT",
+        "modV",
         runTime.timeName(),
         mesh,
         IOobject::NO_READ,
         IOobject::AUTO_WRITE
     ),
-    2.0*T
+    2.0*V
 );
 
 

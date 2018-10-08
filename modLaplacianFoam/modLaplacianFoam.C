@@ -57,18 +57,18 @@ int main(int argc, char *argv[])
 
         while (simple.correctNonOrthogonal())
         {
-            fvScalarMatrix TEqn
+            fvScalarMatrix VEqn
             (
-                fvm::ddt(T) - fvm::laplacian(DT, T)
+                fvm::ddt(V) - fvm::laplacian(DT, V)
              ==
-                fvOptions(T)
+                fvOptions(V)
             );
 
-            fvOptions.constrain(TEqn);
-            TEqn.solve();
-            fvOptions.correct(T);
+            fvOptions.constrain(VEqn);
+            VEqn.solve();
+            fvOptions.correct(V);
 
-            modT = T;
+            modV = V;
         }
 
         #include "write.H"

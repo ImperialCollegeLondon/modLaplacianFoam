@@ -23,7 +23,7 @@ ddtSchemes
 gradSchemes
 {
     default         Gauss linear;
-    grad(T)         Gauss linear;
+    grad(V)         Gauss linear;
 }
 
 divSchemes
@@ -34,7 +34,7 @@ divSchemes
 laplacianSchemes
 {
     default         none;
-    laplacian(DT,T) Gauss linear corrected;
+    laplacian(DT,V) Gauss linear corrected;
 }
 
 interpolationSchemes
