@@ -1,3 +1,5 @@
+// See https://openfoamwiki.net/index.php/2D_Mesh_Tutorial_using_GMSH
+
 // Inputs
 squareSide = 0.1; // m
 meshThickness = squareSide / 20; 
